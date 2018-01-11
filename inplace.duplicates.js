@@ -22,18 +22,6 @@ console.log(numss); //logs numss array to console to visualy check it for duplic
 // Duplicates cannot exist within our array, so, [1,1 ..] would violate
 // Anything after the removed duplicates doesn't count in this solution as a duplicate
 
-public int removeDuplicates(int[] nums) {
-  if (nums.length == 0) return 0;
-  int i = 0;
-  for (int j = 1; j < nums.length; j++) {
-    if (nums[j] != nums[i]) {
-      i++;
-      nums[i] = nums[j];
-    }
-  }
-  return i + 1;
-}
-
 // let numss = [1, 2, 2, 3, 4, 5, 6, 9, 10, 10, 11, 14, 18, 20, 20];
 
 var removeDuplicates = function (nums) {
@@ -96,6 +84,10 @@ Whenever the if-statement in the for-loop evaluates to (false) a duplicate is fo
 . . . This means the index where the duplicate exists is skipped over . . .
 . . . The next time the if-statement in the for-loop evalutes to (true) a duplicate is NOT found . . .
 . . . This means the index is used to replace the previous index
+When the if-statment does not evalue to (true) all logic within the { } of the statement is not fired . . .
+. . . This means j will not increase by 1 when duplicates are found, because . . .
+. . . j only increases by 1 ( j++ ) when the if-statement evaluates to (true) . . .
+. . . And the if-statement only evalutes to true when the index of i is not equal (!=) to the index of i+1 within nums array
 
 */
 // Pattern of duplicate removal created by console.log(nums):
