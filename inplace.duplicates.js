@@ -35,7 +35,7 @@ var removeDuplicates = function (nums) {
 
     if (nums[i] != nums[i + 1]) { // Check if-statement for truthyness
       //i=0 //if // nums[0] != nums[0+1] //-> 1 != 2 (true) -> fire statements below: j++ ; nums[]=nums[..] ;
-      //i=1 //if // nums[1] != nums[1+1] //-> 2 != 2 (false) -> fire no statements below: skip to next iteration i=2 . . .
+      //i=1 //if // nums[1] != nums[1+1] //-> 2 != 2 (false) -> fire no statements below: j-maintains-value & skip to next iteration i=2 . . .
       //i=2 //if // nums[2] != nums[2+1] //-> 2 != 3 (true) -> fire statements below: j++ ; nums[]=nums[..] ;
       //i=3 //if // nums[3] != nums[3+1] //-> 3 != 4 (true) -> fire statements below: j++ ; nums[]=nums[..] ;
       //i=4 //if // nums[4] != nums[4+1] //-> 4 != 5 (true) -> fire statements below: j++ ; nums[]=nums[..] ;
