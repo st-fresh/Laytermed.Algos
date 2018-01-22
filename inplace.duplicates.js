@@ -14,7 +14,7 @@ let numss = [1, 2, 2, 3, 4, 5, 6, 9, 10, 10, 11, 14, 18, 20, 20];
 
 //Correct output using Browser-Console line-by-line:
 removeDuplicates(numss); // execute this in console [ enter-key ]
-console.log(numss); //logs numss array to console to visualy check it for duplicates -> place in logic -> before return statement
+console.log(numss); //logs numss array to console to visualy check it for duplicates -> place in logic -> within the for-loops if-statement
 [1, 2, 3, 4, 5, 6, 9, 10, 11, 14, 18, 20, undefined, 20, 20] //final numss array logged with no duplicates
 12 //final length returned by return statement
 
@@ -31,7 +31,7 @@ var removeDuplicates = function (nums) {
 
   var j = 0; // Declare & assign value to var-j -> number value of 0: j is used to count through (iterate) the array differently than i will.
 
-  for (var i = 0; i < nums.length; i++) { // Declare for-loop: i variable declared and assigned number value of 0, truthy statement to check for on earch for-loop iteration, is i < nums.length ? T/F ? And each iteration causes the value of i to increase by 1 ( i++ )
+  for (var i = 0; i < nums.length; i++) { // Declare for-loop: i variable declared and assigned number value of 0, truthy statement to check for on earch for-loop iteration: { i < nums.length }-? T/F? And each iteration causes the value of i to increase by 1 ( i++ )
 
     if (nums[i] != nums[i + 1]) { // Check if-statement for truthyness
       //mod1   //i=0 //if // nums[0] != nums[0+1] //-> 1 != 2    (true) -> fire statements below: j++ ; nums[]=nums[..] ;
@@ -93,7 +93,7 @@ var removeDuplicates = function (nums) {
 
   }
 
-  return j;
+  return j; // Return the number value of j, which will represent the length of the sorted array ( not including array indices after the sorted values ) //= 12
 
 };
 
