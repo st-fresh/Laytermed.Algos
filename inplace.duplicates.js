@@ -9,14 +9,14 @@
 //function should return length = 2, with the first two elements of nums being 1 and 2 respectively.
 // It doesn 't matter what you leave beyond the new length.
 
-// Example reults:
+// Example results:
 let numss = [1, 2, 2, 3, 4, 5, 6, 9, 10, 10, 11, 14, 18, 20, 20];
 
 //Correct output using Browser-Console line-by-line:
 removeDuplicates(numss); // execute this in console [ enter-key ]
 console.log(numss); //logs numss array to console to visualy check it for duplicates -> place in logic -> before return statement
-[1, 2, 3, 4, 5, 6, 9, 10, 11, 14, 18, 20, undefined, 20, 20] //numss array logged with no duplicates
-12 //length returned by return statement
+[1, 2, 3, 4, 5, 6, 9, 10, 11, 14, 18, 20, undefined, 20, 20] //final numss array logged with no duplicates
+12 //final length returned by return statement
 
 //Solution:
 // Duplicates cannot exist within our array, so, [1,1 ..] would violate
@@ -26,12 +26,12 @@ console.log(numss); //logs numss array to console to visualy check it for duplic
 
 var removeDuplicates = function (nums) {
 
-  if (nums === null || nums.length === 0) return 0; // Check if-statement for truthyness
-  if (nums.length == 1) return 1; // Check if-statement for truthyness
+  if (nums === null || nums.length === 0) return 0; // Check if-statement for truthyness: Incoming parameter is a value of a variable, this value has a type, it's type cannot == null ( it should be of type array ), since it should be of type array the .length method can be used to return the length of the array value, the arrays length cannot == 0 either. Otherwise we have nothing to sort.
+  if (nums.length == 1) return 1; // Check if-statement for truthyness: If the incoming parameter is a variable with a value, we know it's value shoud be of type array, we know arrays have length accessible using .length method which returns the arrays length, if array.length == 1 then we again have nothing to sort.
 
-  var j = 0; // Declare & assign value to var-j -> number value of 0
+  var j = 0; // Declare & assign value to var-j -> number value of 0: j is used to count through (iterate) the array differently than i will.
 
-  for (var i = 0; i < nums.length; i++) { // Declare for-loop
+  for (var i = 0; i < nums.length; i++) { // Declare for-loop: i variable declared and assigned number value of 0, truthy statement to check for on earch for-loop iteration, is i < nums.length ? T/F ? And each iteration causes the value of i to increase by 1 ( i++ )
 
     if (nums[i] != nums[i + 1]) { // Check if-statement for truthyness
       //i=0 //if // nums[0] != nums[0+1] //-> 1 != 2    (true) -> fire statements below: j++ ; nums[]=nums[..] ;
