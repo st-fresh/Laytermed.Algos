@@ -34,40 +34,51 @@ var removeDuplicates = function (nums) {
   for (var i = 0; i < nums.length; i++) { // Declare for-loop
 
     if (nums[i] != nums[i + 1]) { // Check if-statement for truthyness
-      //i=0 //if // nums[0] != nums[0+1] //-> 1 != 2 (true) -> fire statements below: j++ ; nums[]=nums[..] ;
-      //i=1 //if // nums[1] != nums[1+1] //-> 2 != 2 (false) -> fire no statements below: j-maintains-value & skip to next iteration i=2 . . .
-      //i=2 //if // nums[2] != nums[2+1] //-> 2 != 3 (true) -> fire statements below: j++ ; nums[]=nums[..] ;
-      //i=3 //if // nums[3] != nums[3+1] //-> 3 != 4 (true) -> fire statements below: j++ ; nums[]=nums[..] ;
-      //i=4 //if // nums[4] != nums[4+1] //-> 4 != 5 (true) -> fire statements below: j++ ; nums[]=nums[..] ;
-      // ...
+      //i=0 //if // nums[0] != nums[0+1] //-> 1 != 2    (true) -> fire statements below: j++ ; nums[]=nums[..] ;
+      //i=1 //if // nums[1] != nums[1+1] //-> 2 != 2    (false) -> fire no statements below: j-maintains-value & skip to next iteration i=2 . . .
+      //i=2 //if // nums[2] != nums[2+1] //-> 2 != 3    (true) -> fire statements below: j++ ; nums[]=nums[..] ;
+      //i=3 //if // nums[3] != nums[3+1] //-> 3 != 4    (true) -> fire statements below: j++ ; nums[]=nums[..] ;
+      //i=4 //if // nums[4] != nums[4+1] //-> 4 != 5    (true) -> fire statements below: j++ ; nums[]=nums[..] ;
+      //i=5 //if // nums[5] != nums[5+1] //-> 5 != 6    (true) -> fire statements below: j++ ; nums[]=nums[..] ;
+      //i=6 //if // nums[6] != nums[6+1] //-> 6 != 9    (true) -> fire statements below: j++ ; nums[]=nums[..] ;
+      //i=7 //if // nums[7] != nums[7+1] //-> 9 != 10   (true) -> fire statements below: j++ ; nums[]=nums[..] ;
+      //i=8 //if // nums[8] != nums[8+1] //-> 10 != 10  (false) -> fire no statements below: j-maintains-value & skip to next iteration i=9 . . .
+      //i=9 //if // nums[9] != nums[9+1] //-> 10 != 11  (true) -> fire statements below: j++ ; nums[]=nums[..] ;
 
       j++;
       // Add 1 to value of j:
-      // i=0: j = 0 + 1(j=1) ;
-      // i=2: j = 1 + 1(j=2) ;
-      // i=3: j = 2 + 1(j=3) ;
-      // i=4: j = 3 + 1(j=4) ;
-      // ...
+      // i=0: j = 0 + 1 -> j=1 ; //mod1
+      // i=2: j = 1 + 1 -> j=2 ; //mod2
+      // i=3: j = 2 + 1 -> j=3 ; //mod3
+      // i=4: j = 3 + 1 -> j=4 ; //mod4
+      // i=5: j = 4 + 1 -> j=5 ; //mod5
+      // i=6: j = 5 + 1 -> j=6 ; //mod6
+      // i=7: j = 6 + 1 -> j=7 ; //mod7
+      // i=9: j = 7 + 1 -> j=8 ; //mod8
 
 
       nums[j] = nums[i + 1];
-      //////// j=1 <-> nums[j] <-> nums[1] = 2   =   i=0 <-> nums[0+1] = nums[1] = 2
-      //mod1// j=2 <-> nums[j] <-> nums[2] = 2   =   i=2 <-> nums[2+1] = nums[3] = 3
-      //mod2// j=3 <-> nums[j] <-> nums[3] = 3   =   i=3 <-> nums[3+1] = nums[4] = 4
-      //mod3// j=4 <-> nums[j] <-> nums[4] = 4   =   i=4 <-> nums[4+1] = nums[5] = 5
-      // ...
+      //////// j=1 <-> nums[j] <-> nums[1] = 2   =   i=0 <-> nums[0+1] = nums[1]  = 2
+      //mod1// j=2 <-> nums[j] <-> nums[2] = 2   =   i=2 <-> nums[2+1] = nums[3]  = 3
+      //mod2// j=3 <-> nums[j] <-> nums[3] = 3   =   i=3 <-> nums[3+1] = nums[4]  = 4
+      //mod3// j=4 <-> nums[j] <-> nums[4] = 4   =   i=4 <-> nums[4+1] = nums[5]  = 5
+      //mod4// j=5 <-> nums[j] <-> nums[5] = 5   =   i=5 <-> nums[5+1] = nums[6]  = 6
+      //mod5// j=6 <-> nums[j] <-> nums[6] = 6   =   i=6 <-> nums[6+1] = nums[7]  = 9
+      //mod6// j=7 <-> nums[j] <-> nums[7] = 9   =   i=7 <-> nums[7+1] = nums[8]  = 10
+      //mod7// j=8 <-> nums[j] <-> nums[8] = 10  =   i=9 <-> nums[9+1] = nums[10] = 11
 
 
 
       // indices // [ 0  1  2  3  4  5  6  7  8   9   10  11  12  13  14 ]
-      // orig.   // [ 1, 2, 2, 3, 4, 5, 6, 9, 10, 10, 11, 14, 18, 20, 20 ]
+      // mod1   // [ 1, 2, 2, 3, 4, 5, 6, 9, 10, 10, 11, 14, 18, 20, 20 ]  true  // set 2 = 2 ( nums[1] = nums[1] )
       console.log(nums); //lt
-      // mod1    // [ 1, 2, 3, 3, 4, 5, 6, 9, 10, 10, 11, 14, 18, 20, 20 ] true  // set 2 = 2 ( nums[1] = nums[1] )
-      // mod2    // [ 1, 2, 3, 4, 4, 5, 6, 9, 10, 10, 11, 14, 18, 20, 20 ] false // set 2 = 3 ( nums[2] = nums[3] )
-      // mod3    // [ 1, 2, 3, 4, 5, 5, 6, 9, 10, 10, 11, 14, 18, 20, 20 ] true  // set 3 = 4 ( nums[3] = nums[4] )
-      // mod4    // [ 1, 2, 3, 4, 5, 6, 6, 9, 10, 10, 11, 14, 18, 20, 20 ] true  // set 4 = 5 ( nums[4] = nums[5] )
-      // ...
-
+      // mod2    // [ 1, 2, 3, 3, 4, 5, 6, 9, 10, 10, 11, 14, 18, 20, 20 ]  ture  // set 2 = 3  ( nums[2] = nums[3] )
+      // mod3    // [ 1, 2, 3, 4, 4, 5, 6, 9, 10, 10, 11, 14, 18, 20, 20 ]  true  // set 3 = 4  ( nums[3] = nums[4] )
+      // mod4    // [ 1, 2, 3, 4, 5, 5, 6, 9, 10, 10, 11, 14, 18, 20, 20 ]  true  // set 4 = 5  ( nums[4] = nums[5] )
+      // mod5    // [ 1, 2, 3, 4, 5, 6, 6, 9, 10, 10, 11, 14, 18, 20, 20 ]  true  // set 5 = 6  ( nums[5] = nums[6] )
+      // mod6    // [ 1, 2, 3, 4, 5, 6, 9, 9, 10, 10, 11, 14, 18, 20, 20 ]  true  // set 6 = 9  ( nums[6] = nums[7] )
+      // mod7    // [ 1, 2, 3, 4, 5, 6, 9, 10, 10, 10, 11, 14, 18, 20, 20 ] true  // set 9 = 10 ( nums[7] = nums[8] )
+      // mod8    // [ 1, 2, 3, 4, 5, 6, 9, 10, 11, 10, 11, 14, 18, 20, 20 ]
 
     }
 
