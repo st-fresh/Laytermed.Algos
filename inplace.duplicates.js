@@ -44,6 +44,8 @@ var removeDuplicates = function (nums) {
       //mod7   //i=7 //if // nums[7] != nums[7+1] //-> 9 != 10   (true) -> fire statements below: j++ ; nums[]=nums[..] ;
       //NOmod  //i=8 //if // nums[8] != nums[8+1] //-> 10 != 10  (false) -> fire no statements below: j-maintains-value & skip to next iteration i=9 . . .
       //mod8   //i=9 //if // nums[9] != nums[9+1] //-> 10 != 11  (true) -> fire statements below: j++ ; nums[]=nums[..] ;
+      //mod9   //i=10 //if // nums[10] != nums[10+1] //-> 11 != 14 (true) -> fire statements below: j++ ; nums[]=nums[..] ;
+      // ...
 
       j++;
       // Add 1 to value of j:
@@ -55,6 +57,8 @@ var removeDuplicates = function (nums) {
       // i=6: j = 5 + 1 -> j=6 ; //mod6
       // i=7: j = 6 + 1 -> j=7 ; //mod7
       // i=9: j = 7 + 1 -> j=8 ; //mod8
+      // i=10: j = 8 + 1 -> j=9 ; //mod9
+      // ...
 
 
       nums[j] = nums[i + 1];
@@ -66,19 +70,24 @@ var removeDuplicates = function (nums) {
       //mod6// j=6 <-> nums[j] <-> nums[6] = 6   =   i=6 <-> nums[6+1] = nums[7]  = 9
       //mod7// j=7 <-> nums[j] <-> nums[7] = 9   =   i=7 <-> nums[7+1] = nums[8]  = 10
       //mod8// j=8 <-> nums[j] <-> nums[8] = 10  =   i=9 <-> nums[9+1] = nums[10] = 11
+      //mod9// j=9 <-> nums[j] <-> nums[9] = 10  =   i=10 <-> nums[10+1] = nums[11] = 14
+      // ...
 
 
 
       // indices // [ 0  1  2  3  4  5  6  7  8   9   10  11  12  13  14 ]
-      // mod1   // [ 1, 2, 2, 3, 4, 5, 6, 9, 10, 10, 11, 14, 18, 20, 20 ]  true  // set 2 = 2 ( nums[1] = nums[1] )
-      console.log(nums); //lt
-      // mod2    // [ 1, 2, 3, 3, 4, 5, 6, 9, 10, 10, 11, 14, 18, 20, 20 ]  ture  // set 2 = 3  ( nums[2] = nums[3] )
-      // mod3    // [ 1, 2, 3, 4, 4, 5, 6, 9, 10, 10, 11, 14, 18, 20, 20 ]  true  // set 3 = 4  ( nums[3] = nums[4] )
-      // mod4    // [ 1, 2, 3, 4, 5, 5, 6, 9, 10, 10, 11, 14, 18, 20, 20 ]  true  // set 4 = 5  ( nums[4] = nums[5] )
-      // mod5    // [ 1, 2, 3, 4, 5, 6, 6, 9, 10, 10, 11, 14, 18, 20, 20 ]  true  // set 5 = 6  ( nums[5] = nums[6] )
-      // mod6    // [ 1, 2, 3, 4, 5, 6, 9, 9, 10, 10, 11, 14, 18, 20, 20 ]  true  // set 6 = 9  ( nums[6] = nums[7] )
-      // mod7    // [ 1, 2, 3, 4, 5, 6, 9, 10, 10, 10, 11, 14, 18, 20, 20 ] true  // set 9 = 10 ( nums[7] = nums[8] )
-      // mod8    // [ 1, 2, 3, 4, 5, 6, 9, 10, 11, 10, 11, 14, 18, 20, 20 ]
+      // mod1    // [ 1, 2, 2, 3, 4, 5, 6, 9, 10, 10, 11, 14, 18, 20, 20 ]  true  // set 2 = 2   ( nums[1] = nums[1] )
+      // mod2    // [ 1, 2, 3, 3, 4, 5, 6, 9, 10, 10, 11, 14, 18, 20, 20 ]  ture  // set 2 = 3   ( nums[2] = nums[3] )
+      // mod3    // [ 1, 2, 3, 4, 4, 5, 6, 9, 10, 10, 11, 14, 18, 20, 20 ]  true  // set 3 = 4   ( nums[3] = nums[4] )
+      // mod4    // [ 1, 2, 3, 4, 5, 5, 6, 9, 10, 10, 11, 14, 18, 20, 20 ]  true  // set 4 = 5   ( nums[4] = nums[5] )
+      // mod5    // [ 1, 2, 3, 4, 5, 6, 6, 9, 10, 10, 11, 14, 18, 20, 20 ]  true  // set 5 = 6   ( nums[5] = nums[6] )
+      // mod6    // [ 1, 2, 3, 4, 5, 6, 9, 9, 10, 10, 11, 14, 18, 20, 20 ]  true  // set 6 = 9   ( nums[6] = nums[7] )
+      // mod7    // [ 1, 2, 3, 4, 5, 6, 9, 10, 10, 10, 11, 14, 18, 20, 20 ] true  // set 9 = 10  ( nums[7] = nums[8] )
+      // mod8    // [ 1, 2, 3, 4, 5, 6, 9, 10, 11, 10, 11, 14, 18, 20, 20 ] true  // set 10 = 11 ( nums[8] = nums[10] )
+      // mod9    // [ 1, 2, 3, 4, 5, 6, 9, 10, 11, 14, 11, 14, 18, 20, 20 ] true  // set 10 = 14 ( nums[9] = nums[11] )
+      // ...
+
+      console.log(nums); // On each iteration of for-loop log the array value representing nums parameter, which is the value of numss array: Only logs when mod happens and if-statment is truthy
 
     }
 
