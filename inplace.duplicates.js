@@ -102,14 +102,14 @@ var removeDuplicates = function (nums) {
 Logic Conceptually:
 
 Whenever the if-statement in the for-loop evaluates to (false) a duplicate is found ( 2 = 2 ). . .
-. . . When this duplicate is found and if-statement evaluates to (false) the orig. nums array is not modified . . .
-. . . This means the index where the duplicate exists is skipped over . . .
-. . . The next time the if-statement in the for-loop evalutes to (true) a duplicate is NOT found . . .
-. . . This means the index is used to replace the previous index
+. . . When this duplicate is found and if-statement evaluates to (false) the orig. numss array is not modified . . .
+. . . This means the index where the duplicate exists is skipped over - value of j does not increase . . .
+. . . The next time the if-statement in the for-loop evaluates to (true) a duplicate is NOT found . . .
+. . . This means the index is used to replace the previous index - value of j does increase by 1
 When the if-statment does not evalue to (true) all logic within the { } of the statement is not fired . . .
 . . . This means j will not increase by 1 when duplicates are found, because . . .
 . . . j only increases by 1 ( j++ ) when the if-statement evaluates to (true) . . .
-. . . And the if-statement only evalutes to true when the index of i is not equal (!=) to the index of i+1 within nums array
+. . . And the if-statement only evalutes to true when the index of i is not equal (!=) to the index of i+1 within numss array
 
 */
 // Pattern of duplicate removal created by console.log(nums):
