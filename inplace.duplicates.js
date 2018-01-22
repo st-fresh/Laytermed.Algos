@@ -34,16 +34,16 @@ var removeDuplicates = function (nums) {
   for (var i = 0; i < nums.length; i++) { // Declare for-loop: i variable declared and assigned number value of 0, truthy statement to check for on earch for-loop iteration, is i < nums.length ? T/F ? And each iteration causes the value of i to increase by 1 ( i++ )
 
     if (nums[i] != nums[i + 1]) { // Check if-statement for truthyness
-      //i=0 //if // nums[0] != nums[0+1] //-> 1 != 2    (true) -> fire statements below: j++ ; nums[]=nums[..] ;
-      //i=1 //if // nums[1] != nums[1+1] //-> 2 != 2    (false) -> fire no statements below: j-maintains-value & skip to next iteration i=2 . . .
-      //i=2 //if // nums[2] != nums[2+1] //-> 2 != 3    (true) -> fire statements below: j++ ; nums[]=nums[..] ;
-      //i=3 //if // nums[3] != nums[3+1] //-> 3 != 4    (true) -> fire statements below: j++ ; nums[]=nums[..] ;
-      //i=4 //if // nums[4] != nums[4+1] //-> 4 != 5    (true) -> fire statements below: j++ ; nums[]=nums[..] ;
-      //i=5 //if // nums[5] != nums[5+1] //-> 5 != 6    (true) -> fire statements below: j++ ; nums[]=nums[..] ;
-      //i=6 //if // nums[6] != nums[6+1] //-> 6 != 9    (true) -> fire statements below: j++ ; nums[]=nums[..] ;
-      //i=7 //if // nums[7] != nums[7+1] //-> 9 != 10   (true) -> fire statements below: j++ ; nums[]=nums[..] ;
-      //i=8 //if // nums[8] != nums[8+1] //-> 10 != 10  (false) -> fire no statements below: j-maintains-value & skip to next iteration i=9 . . .
-      //i=9 //if // nums[9] != nums[9+1] //-> 10 != 11  (true) -> fire statements below: j++ ; nums[]=nums[..] ;
+      //mod1   //i=0 //if // nums[0] != nums[0+1] //-> 1 != 2    (true) -> fire statements below: j++ ; nums[]=nums[..] ;
+      //NOmod  //i=1 //if // nums[1] != nums[1+1] //-> 2 != 2    (false) -> fire no statements below: j-maintains-value & skip to next iteration i=2 . . .
+      //mod2   //i=2 //if // nums[2] != nums[2+1] //-> 2 != 3    (true) -> fire statements below: j++ ; nums[]=nums[..] ;
+      //mod3   //i=3 //if // nums[3] != nums[3+1] //-> 3 != 4    (true) -> fire statements below: j++ ; nums[]=nums[..] ;
+      //mod4   //i=4 //if // nums[4] != nums[4+1] //-> 4 != 5    (true) -> fire statements below: j++ ; nums[]=nums[..] ;
+      //mod5   //i=5 //if // nums[5] != nums[5+1] //-> 5 != 6    (true) -> fire statements below: j++ ; nums[]=nums[..] ;
+      //mod6   //i=6 //if // nums[6] != nums[6+1] //-> 6 != 9    (true) -> fire statements below: j++ ; nums[]=nums[..] ;
+      //mod7   //i=7 //if // nums[7] != nums[7+1] //-> 9 != 10   (true) -> fire statements below: j++ ; nums[]=nums[..] ;
+      //NOmod  //i=8 //if // nums[8] != nums[8+1] //-> 10 != 10  (false) -> fire no statements below: j-maintains-value & skip to next iteration i=9 . . .
+      //mod8   //i=9 //if // nums[9] != nums[9+1] //-> 10 != 11  (true) -> fire statements below: j++ ; nums[]=nums[..] ;
 
       j++;
       // Add 1 to value of j:
@@ -58,14 +58,14 @@ var removeDuplicates = function (nums) {
 
 
       nums[j] = nums[i + 1];
-      //////// j=1 <-> nums[j] <-> nums[1] = 2   =   i=0 <-> nums[0+1] = nums[1]  = 2
-      //mod1// j=2 <-> nums[j] <-> nums[2] = 2   =   i=2 <-> nums[2+1] = nums[3]  = 3
-      //mod2// j=3 <-> nums[j] <-> nums[3] = 3   =   i=3 <-> nums[3+1] = nums[4]  = 4
-      //mod3// j=4 <-> nums[j] <-> nums[4] = 4   =   i=4 <-> nums[4+1] = nums[5]  = 5
-      //mod4// j=5 <-> nums[j] <-> nums[5] = 5   =   i=5 <-> nums[5+1] = nums[6]  = 6
-      //mod5// j=6 <-> nums[j] <-> nums[6] = 6   =   i=6 <-> nums[6+1] = nums[7]  = 9
-      //mod6// j=7 <-> nums[j] <-> nums[7] = 9   =   i=7 <-> nums[7+1] = nums[8]  = 10
-      //mod7// j=8 <-> nums[j] <-> nums[8] = 10  =   i=9 <-> nums[9+1] = nums[10] = 11
+      //mod1// j=1 <-> nums[j] <-> nums[1] = 2   =   i=0 <-> nums[0+1] = nums[1]  = 2
+      //mod2// j=2 <-> nums[j] <-> nums[2] = 2   =   i=2 <-> nums[2+1] = nums[3]  = 3
+      //mod3// j=3 <-> nums[j] <-> nums[3] = 3   =   i=3 <-> nums[3+1] = nums[4]  = 4
+      //mod4// j=4 <-> nums[j] <-> nums[4] = 4   =   i=4 <-> nums[4+1] = nums[5]  = 5
+      //mod5// j=5 <-> nums[j] <-> nums[5] = 5   =   i=5 <-> nums[5+1] = nums[6]  = 6
+      //mod6// j=6 <-> nums[j] <-> nums[6] = 6   =   i=6 <-> nums[6+1] = nums[7]  = 9
+      //mod7// j=7 <-> nums[j] <-> nums[7] = 9   =   i=7 <-> nums[7+1] = nums[8]  = 10
+      //mod8// j=8 <-> nums[j] <-> nums[8] = 10  =   i=9 <-> nums[9+1] = nums[10] = 11
 
 
 
